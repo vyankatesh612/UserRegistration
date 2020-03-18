@@ -55,7 +55,7 @@ usermobile
 function password()
 	{
 		read -p "Enter password : " password
-		passwordpattern="^[?=.{8,}][?=.*[A-Z]].*$"
+		passwordpattern="^(?=.{8,})(?=.*[A-Z]).*$"
 		uservalidation $password $passwordpattern
 	}
 password
