@@ -39,3 +39,16 @@ function email()
 		fi
 	}
 email
+
+function mobilevalidation()
+	{
+		read -p "Enter the mobile number : " mobilenumber
+		local pattern="[0-9]{2}[ ]?[0-9]{10}$"
+		if [[ $mobilenumber =~ $pattern ]]
+		then
+			echo "valid"
+		else
+			echo "invalid"
+		fi
+	}
+mobilevalidation
