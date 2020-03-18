@@ -1,5 +1,6 @@
 #!/bin/bash -x
 echo "********USER REGISTRATION********"
+
 function firstname()
 	{ 
 		read -p  "Enter the first name : " firstname
@@ -25,3 +26,16 @@ function lastname()
 		fi
 	}
 lastname
+
+function email()
+	{
+		read -p "Enter email address : " email
+		local pattern="^([a-zA-Z0-9]{1,}([.]?[a-zA-Z0-9])*[@][a-zA-Z]+[.][a-zA-Z]{2,4}[.]?[a-zA-Z]*)$"
+		if [[ $email =~ $pattern ]]
+		then
+			echo "valid"
+		else
+			echo "invalid"
+		fi
+	}
+email
