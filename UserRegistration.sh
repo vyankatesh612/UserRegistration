@@ -15,18 +15,6 @@ function uservalidation()
 		fi
 	}
 
-function usermobile()
-	{
-		read -p "Enter mobile number : " mobilenumber
-		mobilepattern="[0-9]{2}[ ]?[0-9]{10}$"
-		if [[ $mobilenumber =~ $mobilepattern ]]
-		then
-			echo "valid"
-		else
-			echo "Invalid"
-		fi
-	}
-
 function firstname()
 	{
 		read -p "Enter the first name : " firstname
