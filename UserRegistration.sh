@@ -21,7 +21,6 @@ function firstname()
 		firstnamepattern="^[A-Z][a-z]{3,}$"
 		uservalidation $firstname $firstnamepattern
 	}
-firstname
 
 function lastname()
 	{
@@ -29,7 +28,6 @@ function lastname()
 		lastnamepattern="^[A-Z][a-z]{3,}$"
 		uservalidation $lastname $lastnamepattern
 	}
-lastname
 
 function email()
 	{
@@ -37,7 +35,6 @@ function email()
 		emailpattern="^([a-zA-Z0-9]{1,}([.]?[a-zA-Z0-9])*[@][a-zA-Z]+[.][a-zA-Z]{2,4}[.]?[a-zA-Z]*)$"
 		uservalidation $email $emailpattern
 	}
-email
 
 function usermobile()
 	{
@@ -50,12 +47,17 @@ function usermobile()
 			echo "Invalid"
 		fi
 	}
-usermobile
 
 function password()
 	{
 		read -p "Enter password : " password
-		passwordpattern="^(?=.{8,})(?=.*[A-Z]).*$"
-		uservalidation $password $passwordpattern
+		local mincharacter="^[A-Za-z0-9]{8,}$"
+		local uppercase=".*[A-Z].*$"
+		if [[ $password =~ $mincharacter && $password =~ $uppercase ]]
+		then
+			echo "valid"
+		else
+			echo "invalid"
+		fi
 	}
 password
