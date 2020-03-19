@@ -57,7 +57,8 @@ function password()
 		read -p "Enter password : " password
 		local mincharacter="^[A-Za-z0-9]{8,}$"
 		local uppercase=".*[A-Z].*$"
-		if [[ $password =~ $mincharacter && $password =~ $uppercase ]]
+		local minonenumber=".*[0-9].*$"
+		if [[ $password =~ $mincharacter && $password =~ $uppercase && $password =~ $minonenumber ]]
 		then
 			echo "valid"
 		else
