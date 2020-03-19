@@ -55,7 +55,14 @@ usermobile
 function password()
 	{
 		read -p "Enter password : " password
-		passwordpattern="^[?=.{8,}][?=.*[A-Z]].*$"
-		uservalidation $password $passwordpattern
+		local mincharacter="^[A-Za-z0-9]{8,}$"
+		local uppercase=".*[A-Z].*$"
+		local minonenumber=".*[0-9].*$"
+		if [[ $password =~ $mincharacter && $password =~ $uppercase && $password =~ $minonenumber ]]
+		then
+			echo "valid"
+		else
+			echo "invalid"
+		fi
 	}
 password
